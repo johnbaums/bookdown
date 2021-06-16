@@ -182,7 +182,7 @@ gitbook_toc = function(x, cur, config) {
   i = grep(r, toc)
   toc[i] = gsub(
     r,
-    '<li class="chapter" data-level="\\3" data-path="\\1"><a href="\\1\\2"><span class="fa fa-check"></span><strong>\\3</strong>\\4\\5',
+    '<li class="chapter" data-level="\\3" data-path="\\1"><a href="\\1\\2"><strong>\\3</strong>\\4\\5',
     toc[i]
   )
   toc[i] = sub(' data-path="">', paste0(' data-path="', with_ext(cur, '.html'), '">'), toc[i])
@@ -192,7 +192,7 @@ gitbook_toc = function(x, cur, config) {
   i = grep(r, toc)
   toc[i] = gsub(
     r,
-    '<li class="chapter" data-level="" data-path="\\1"><a href="\\1\\2"><span class="fa fa-check"></span>\\3',
+    '<li class="chapter" data-level="" data-path="\\1"><a href="\\1\\2">\\3',
     toc[i]
   )
 
