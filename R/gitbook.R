@@ -112,11 +112,11 @@ gitbook_page = function(
   has_prev = length(link_prev) > 0
   has_next = length(link_next) > 0
   a_prev = if (has_prev) sprintf(
-    '<a href="%s" class="navigation navigation-prev %s" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>',
+    '<a href="%s" class="navigation navigation-prev %s" aria-label="Previous page"><span class="fa fa-angle-left"></span></a>',
     link_prev, if (has_next) '' else 'navigation-unique'
   ) else ''
   a_next = if (has_next) sprintf(
-    '<a href="%s" class="navigation navigation-next %s" aria-label="Next page"><i class="fa fa-angle-right"></i></a>',
+    '<a href="%s" class="navigation navigation-next %s" aria-label="Next page"><span class="fa fa-angle-right"></span></a>',
     link_next, if (has_prev) '' else 'navigation-unique'
   ) else ''
   foot = sub('<!--bookdown:link_prev-->', a_prev, foot)
@@ -182,7 +182,7 @@ gitbook_toc = function(x, cur, config) {
   i = grep(r, toc)
   toc[i] = gsub(
     r,
-    '<li class="chapter" data-level="\\3" data-path="\\1"><a href="\\1\\2"><strong>\\3</strong>\\4\\5',
+    '<li class="chapter" data-level="\\3" data-path="\\1"><a href="\\1\\2"><span class="fa fa-check"></span><strong>\\3</strong>\\4\\5',
     toc[i]
   )
   toc[i] = sub(' data-path="">', paste0(' data-path="', with_ext(cur, '.html'), '">'), toc[i])
@@ -192,7 +192,7 @@ gitbook_toc = function(x, cur, config) {
   i = grep(r, toc)
   toc[i] = gsub(
     r,
-    '<li class="chapter" data-level="" data-path="\\1"><a href="\\1\\2"><i class="fa fa-check"></i>\\3',
+    '<li class="chapter" data-level="" data-path="\\1"><a href="\\1\\2"><span class="fa fa-check"></span>\\3',
     toc[i]
   )
 
